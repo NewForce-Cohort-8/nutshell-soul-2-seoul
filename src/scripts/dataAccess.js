@@ -13,9 +13,9 @@ export const fetchNews = () => {
     return fetch(`${API}/news`)
         .then(response => {return response.json()})
         .then(
-            (serviceRequests) => {
+            (userNewsPost) => {
                 // Store the external state in application state
-                applicationState.requests = serviceRequests
+                applicationState.news = userNewsPost
             }
         )
 }
