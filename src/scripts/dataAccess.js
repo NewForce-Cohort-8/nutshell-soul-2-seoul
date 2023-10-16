@@ -53,3 +53,49 @@ export const deleteNews = (id) => {
             }
         )
 }
+
+
+
+// fetch request data from API
+export const fetchTasks = () => {
+    return fetch(`${API}/tasks`)
+    .then(response => {return response.json()})
+    .then(
+        (serviceRequests) => {
+            // Store the external state in application state
+            applicationState.requests = serviceRequests
+        }
+        )
+    }
+        // export tasks in application state to make data renderable to HTML
+        export const getTasks = () => {
+            return applicationState.tasks.map(taskpost => ({...taskpost}))
+        }
+
+        // sends Task post made by user in browser to API and then refactored to json database
+export const sendTask = (userTaskPost) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userTaskPost)
+    }
+
+
+    return fetch(`${API}/tasks`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+// deletes task from API/json database which also removes the request from the browser 
+export const deleteTask = (id) => {
+    return fetch(`${API}/tasks/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
