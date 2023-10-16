@@ -1,7 +1,14 @@
 import {LogOutButton} from "./auth/LogoutButton.js"
+import { NewsForm } from "./NewsForm.js"
 
 export const Nutshell = () => {
-
-    LogOutButton()
+  return `
+  <h1>Nutshell</h1>
+  <section class="newsForm">
+  ${NewsForm()}
+  </section>
+  `
       // Render all your UI components here
 }
+
+// ${LogOutButton()}
