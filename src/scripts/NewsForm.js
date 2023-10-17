@@ -1,9 +1,10 @@
 import { getNews, sendNews, deleteNews } from "./dataAccess.js";
 
+
 export const NewsForm = () => {
     let html = `<div class="field">
     <label class="label" for="newsURL">URL</label>
-    <input type="text" name="newsURL" class="input" />
+    <input type="url" name="newsURL" class="input" />
 </div>
 <div class="field">
     <label class="label" for="newsTitle">Title of Article</label>
@@ -19,19 +20,21 @@ export const NewsForm = () => {
     return html
 }
 
+
 export const NewsCard = () => {
     const news = getNews()
-
+    const sortNewsCards = news.sort((a,b) => new Date(b.dateCreated) - new Date(a.dateCreated))
     let html = `
 
     <ul>  ${
-        news.map(newspost => {
+        sortNewsCards.map(newspost => {
             return `
             <div class="card">
   <div class="container">
     <h4><b> Title: ${newspost.title}</b></h4>
     <p> URL: ${newspost.url}</p>
-    <p> Synopsis: ${newspost.synopsis}</p>    
+    <p> Synopsis: ${newspost.synopsis}</p>  
+    <p> Date Created: ${newspost.dateCreated}</p>     
     </div>
 </div>
 <button class="request__delete" id="news--${newspost.id}"> Delete </button>`
@@ -52,6 +55,7 @@ mainContainer.addEventListener("click", click => {
         deleteNews(parseInt(newsId))
     }
 })
+
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveArticle") {

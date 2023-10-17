@@ -26,7 +26,7 @@ export const fetchNews = () => {
 export const getNews = () => {
     return applicationState.news.map(newspost => ({...newspost}))
 }
-
+ console.log(getNews())
 
 // sends news post made by user in browser to API and then refactored to json database
 export const sendNews = (userNewsPost) => {
@@ -55,27 +55,6 @@ export const deleteNews = (id) => {
             }
         )
 }
-
-
-
-// fetch request data from API
-export const fetchTasks = () => {
-    return fetch(`${API}/tasks`)
-    .then(response => {return response.json()})
-    .then(
-        (serviceRequests) => {
-            // Store the external state in application state
-            applicationState.requests = serviceRequests
-        }
-        )
-    }
-        // export tasks in application state to make data renderable to HTML
-        export const getTasks = () => {
-            return applicationState.tasks.map(taskpost => ({...taskpost}))
-        }
-
-        
-
 
 
 //chats 
