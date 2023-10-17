@@ -1,11 +1,11 @@
 import { LoginForm } from "./LoginForm.js"
 import { RegisterForm } from "./RegisterForm.js"
 
-const eventHub = document.querySelector(".dashboard")
-const contentTarget = document.querySelector(".dashboard")
+const eventHub = document.querySelector(".auth--logout")
+const contentTarget = document.querySelector(".auth--logout")
 
 export const LogOutButton = () => {
-    contentTarget.innerHTML += `<button id="logout-button">Log Out</button>`
+    contentTarget.innerHTML = `<button id="logout-button">Log Out</button>`
 }
 
 eventHub.addEventListener("click", (eventObject) => {

@@ -9,7 +9,7 @@ eventHub.addEventListener("click", e => {
         // Get their email from the login form
         const email = document.querySelector("#login__email").value
 
-        // Query the databaes for users that have that email
+        // Query the database for users that have that email
         return fetch(`http://localhost:8080/users?email=${email}`)
             .then(response => response.json())
             .then(users => {

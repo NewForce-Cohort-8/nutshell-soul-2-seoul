@@ -17,8 +17,6 @@ const render = () => {
     )
 }
 
-render()
-
 
 mainContainer.addEventListener(
     "stateChanged",
@@ -33,5 +31,5 @@ if(!activeUser){
     LoginForm()
     RegisterForm()
 } else {
-    Nutshell()
+    render()
 }
