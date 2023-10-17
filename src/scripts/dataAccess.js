@@ -8,7 +8,7 @@ const applicationState = {
 
 const API = "http://localhost:8080"
 
-const mainContainer = document.querySelector(".dashboard")
+
 
 // fetch request data from API
 export const fetchNews = () => {
@@ -26,7 +26,7 @@ export const fetchNews = () => {
 export const getNews = () => {
     return applicationState.news.map(newspost => ({...newspost}))
 }
-
+ console.log(getNews())
 
 // sends news post made by user in browser to API and then refactored to json database
 export const sendNews = (userNewsPost) => {
