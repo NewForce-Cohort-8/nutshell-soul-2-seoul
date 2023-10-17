@@ -19,6 +19,7 @@ export const NewsForm = () => {
     return html
 }
 
+
 export const NewsCard = () => {
     const news = getNews()
 
@@ -31,7 +32,8 @@ export const NewsCard = () => {
   <div class="container">
     <h4><b> Title: ${newspost.title}</b></h4>
     <p> URL: ${newspost.url}</p>
-    <p> Synopsis: ${newspost.synopsis}</p>    
+    <p> Synopsis: ${newspost.synopsis}</p>  
+    <p> Date Created: ${newspost.dateCreated}</p>     
     </div>
 </div>
 <button class="request__delete" id="news--${newspost.id}"> Delete </button>`
@@ -52,6 +54,7 @@ mainContainer.addEventListener("click", click => {
         deleteNews(parseInt(newsId))
     }
 })
+
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveArticle") {

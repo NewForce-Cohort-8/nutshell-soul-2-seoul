@@ -8,6 +8,8 @@ const applicationState = {
 
 const API = "http://localhost:8080"
 
+const mainContainer = document.querySelector(".dashboard")
+
 // fetch request data from API
 export const fetchNews = () => {
     return fetch(`${API}/news`)
