@@ -1,9 +1,10 @@
 import { getNews, sendNews, deleteNews } from "./dataAccess.js";
 
+
 export const NewsForm = () => {
     let html = `<div class="field">
     <label class="label" for="newsURL">URL</label>
-    <input type="text" name="newsURL" class="input" />
+    <input type="url" name="newsURL" class="input" />
 </div>
 <div class="field">
     <label class="label" for="newsTitle">Title of Article</label>
