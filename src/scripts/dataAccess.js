@@ -93,9 +93,7 @@ export const sendChats = (userChatsPost) => {
         })
 }
 
-// deletes task from API/json database which also removes the request from the browser 
-export const deleteTask = (id) => {
-    return fetch(`${API}/tasks/${id}`, { method: "DELETE" })}
+
 // deletes chats from API/json database which also removes the request from the browser 
 export const deleteChats = (id) => {
     return fetch(`${API}/chats/${id}`, { method: "DELETE" })
@@ -105,6 +103,20 @@ export const deleteChats = (id) => {
             }
         )
 }
+
+
+// fetch task data from API
+export const fetchTasks = () => {
+    return fetch(`${API}/tasks`)
+        .then(response => {return response.json()})
+        .then(
+            (userTasksPost) => {
+                // Store the external state in application state
+                applicationState.tasks = userTasksPost
+            }
+        )
+}
+
 
 // sends tasks post made by user in browser to API and then refactored to json database
 export const sendTasks = (userTasksPost) => {
@@ -120,4 +132,12 @@ export const sendTasks = (userTasksPost) => {
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
+}
+// deletes task from API/json database which also removes the request from the browser 
+export const deleteTask = (id) => {
+    return fetch(`${API}/tasks/${id}`, { method: "DELETE" })}
+
+    // export tasks in application state to make data renderable to HTML
+export const getTasks = () => {
+    return applicationState.tasks.map(taskspost => ({...taskspost}))
 }

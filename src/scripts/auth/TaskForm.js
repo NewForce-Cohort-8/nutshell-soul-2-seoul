@@ -1,4 +1,5 @@
-import { sendTask } from "./dataAccess.js";
+import { sendTasks } from "../dataAccess.js";
+
 
 export const TaskForm = () => {
     let html = 
@@ -36,6 +37,6 @@ mainContainer.addEventListener("click", clickEvent => {
         }
 
         // Send the data to the API for permanent storage
-        sendTask(dataToSendToAPI)
+        sendTasks(dataToSendToAPI)
     }
 })
