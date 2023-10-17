@@ -1,3 +1,5 @@
+
+
 body {
     background-color: bisque;
 }
@@ -11,4 +13,69 @@ body {
     font: 45px;
     text-align: center;
     font-family: Verdana, sans-serif;
+}
+
+.publicMessage {
+    border-style: solid;
+    border-width: medium;
+    border-color: midnightblue;
+    color: midnightblue;
+    height: 40%;
+    width: 85%;
+    background-color: bisque;
+    margin: 10px;
+
+}
+
+.toDoList {
+    border-style: solid;
+    border-width: medium;
+    border-color: midnightblue;
+    color: midnightblue;
+    height: 40%;
+    width: 42%;
+    background-color: bisque;
+    margin: 10px;
+    text-align: left;
+    display: inline-flex
+
+}
+
+.futureEvents {
+    border-style: solid;
+    border-width: medium;
+    border-color: midnightblue;
+    color: midnightblue;
+    height: 40%;
+    width: 42%;
+    background-color: bisque;
+    margin: 10px;
+    text-align: left;
+    display: inline-flex
+
+}
+
+.news {
+    border-style: solid;
+    border-width: medium;
+    border-color: midnightblue;
+    color: midnightblue;
+    height: 40%;
+    width: 45%;
+    background-color: bisque;
+    margin: 10px;
+
+}
+
+.pics {
+    border-style: solid;
+    border-width: medium;
+    border-color: midnightblue;
+    color: midnightblue;
+    height: 40%;
+    width: 45%;
+    background-color: bisque;
+    margin: 10px;
+
+
 }
