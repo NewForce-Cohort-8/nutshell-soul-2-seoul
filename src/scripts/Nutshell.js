@@ -1,5 +1,5 @@
 import {LogOutButton} from "./auth/LogoutButton.js"
-import { TaskForm } from "./auth/TaskForm.js"
+import { TaskCard, TaskForm } from "./auth/TaskForm.js"
 import { NewsCard, NewsForm } from "./NewsForm.js"
 import { ChatsCard, Chatbox } from "./Chatbox.js"
 
@@ -37,6 +37,7 @@ export const Nutshell = () => {
   </section>
   <section class="taskForm">
   ${TaskForm()}
+  ${TaskCard()}
   </section>
   `
       // Render all your UI components here

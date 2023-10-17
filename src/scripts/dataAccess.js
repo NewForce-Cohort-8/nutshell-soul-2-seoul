@@ -125,7 +125,7 @@ export const sendTasks = (userTasksPost) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(userTaskPost)
+        body: JSON.stringify(userTasksPost)
     }
     return fetch(`${API}/tasks`, fetchOptions)
         .then(response => response.json())

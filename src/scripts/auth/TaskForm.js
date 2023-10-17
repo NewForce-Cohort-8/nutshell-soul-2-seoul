@@ -1,4 +1,4 @@
-import { sendTasks } from "../dataAccess.js";
+import { deleteTask, getTasks, sendTasks } from "../dataAccess.js";
 
 
 export const TaskForm = () => {
@@ -8,13 +8,35 @@ export const TaskForm = () => {
         <input type="text" name="taskDesc" class="input" />
     </div>
     <div class="field">
-        <label class="label" for="taskCompletion">Completion</label>
-        <input type="bool" name="taskCompletion" class="input" />
+        <label class="label" for="taskCompletion">Complete</label>
+        <input type="checkbox" name="taskCompletion" class="input" />
     </div>
 
 
 <button class="button" id="saveTask">Save Task</button>`
 
+    return html
+}
+export const TaskCard = () => {
+    const task = getTasks()
+    const sortTaskCards = task.sort((a,b) => (b.dateCreated) - (a.dateCreated))
+    let html = `
+
+    <ul>  ${
+        sortTaskCards.map(taskpost => {
+            return `
+            <div class="card">
+  <div class="container">
+    <h4><b> To-DO: </b></h4>
+    <p> Description: ${taskpost.task}</p> 
+    <p> Completion: ${taskpost.completion}</p>     
+    </div>
+</div>
+<button class="request__delete" id="tasks--${taskpost.id}"> Delete </button>`
+        }).join(" ")
+    }  
+    </ul> `
+       
     return html
 }
 
@@ -33,10 +55,18 @@ mainContainer.addEventListener("click", clickEvent => {
         const dataToSendToAPI = {
             task: taskDesc,
             completion: taskCompletion,
-          
+            dateCreated: new Date
         }
 
         // Send the data to the API for permanent storage
         sendTasks(dataToSendToAPI)
+    }
+})
+
+// click event listener for task form delete
+mainContainer.addEventListener("click", click => {
+    if (click.target.id.startsWith("tasks--")) {
+        const [,taskId] = click.target.id.split("--")
+        deleteTask(parseInt(taskId))
     }
 })
