@@ -74,8 +74,9 @@ export const fetchTasks = () => {
             return applicationState.tasks.map(taskpost => ({...taskpost}))
         }
 
-        // sends Task post made by user in browser to API and then refactored to json database
-// export const sendTask = (userTaskPost) => {
+        
+
+
 
 //chats 
 
@@ -124,4 +125,20 @@ export const deleteChats = (id) => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             }
         )
+}
+
+// sends tasks post made by user in browser to API and then refactored to json database
+export const sendTasks = (userTasksPost) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userTaskPost)
+    }
+    return fetch(`${API}/tasks`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }
