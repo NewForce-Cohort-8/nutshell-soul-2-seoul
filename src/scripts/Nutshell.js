@@ -21,6 +21,7 @@ export const Nutshell = () => {
     padding: 30px;
   }
 </style>
+${LogOutButton()}
   <h1>Nutshell</h1>
   <div class="chatBox">
   ${ChatsCard()}
@@ -37,5 +38,3 @@ export const Nutshell = () => {
   `
       // Render all your UI components here
 }
-
-// ${LogOutButton()}
