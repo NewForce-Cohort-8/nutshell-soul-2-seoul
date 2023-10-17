@@ -23,11 +23,23 @@ export const ChatsCard = () => {
         chats.map(chatspost => {
             return `
             <div class="card">
-  <div class="container">
+            <style>
+            div.Chatcontainer {
+              background-color: #e3f3fc;
+              
+              width: 150px;
+              height: auto;
+              text-align: center;
+              box-shadow: rgba(0, 0, 0, 0.40) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+              border-radius: 18px;
+              padding: 2px;
+            }
+          </style>
+  <div class="Chatcontainer">
     <p> Chat: ${chatspost.chatMessage}</p>    
     </div>
 </div>
-<button class="request__delete" id="chats--${chatspost.id}"> Delete </button>`
+<button class="request__delete" id="chats--${chatspost.id}"> X </button>`
         }).join(" ")
     }  
     </ul> `
