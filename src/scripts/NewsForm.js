@@ -22,11 +22,11 @@ export const NewsForm = () => {
 
 export const NewsCard = () => {
     const news = getNews()
-
+    const sortNewsCards = news.sort((a,b) => new Date(b.dateCreated) - new Date(a.dateCreated))
     let html = `
 
     <ul>  ${
-        news.map(newspost => {
+        sortNewsCards.map(newspost => {
             return `
             <div class="card">
   <div class="container">
