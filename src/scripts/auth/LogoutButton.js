@@ -15,7 +15,7 @@ eventHub.addEventListener("click", (eventObject) => {
 
         // clear the DOM
         document.querySelector(".dashboard").innerHTML = ""
-
+        contentTarget.innerHTML = ""
         // Reprint the login and register form
         LoginForm()
         RegisterForm()

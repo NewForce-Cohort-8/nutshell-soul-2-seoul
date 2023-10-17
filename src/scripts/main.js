@@ -7,7 +7,7 @@ import { LogOutButton } from "./auth/LogoutButton.js"
 
 const mainContainer = document.querySelector(".dashboard")
 
-const render = () => {
+export const nutshellRender = () => {
     fetchNews()
     .then(() => fetchChats())
     .then(
@@ -21,7 +21,7 @@ const render = () => {
 mainContainer.addEventListener(
     "stateChanged",
     customEvent => {
-        render()
+        nutshellRender()
     }
 )
 
@@ -31,5 +31,5 @@ if(!activeUser){
     LoginForm()
     RegisterForm()
 } else {
-    render()
+    nutshellRender()
 }
