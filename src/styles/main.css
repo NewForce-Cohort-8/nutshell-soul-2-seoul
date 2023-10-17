@@ -1,0 +1,14 @@
+body {
+    background-color: bisque;
+}
+
+#mainHeader {
+    border: none;
+    position: sticky;
+    color: midnightblue;
+    background-color: bisque;
+    line-height: 70px;
+    font: 45px;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+}
