@@ -26,7 +26,7 @@ export const fetchNews = () => {
 export const getNews = () => {
     return applicationState.news.map(newspost => ({...newspost}))
 }
-
+ console.log(getNews())
 
 // sends news post made by user in browser to API and then refactored to json database
 export const sendNews = (userNewsPost) => {
@@ -55,8 +55,6 @@ export const deleteNews = (id) => {
             }
         )
 }
-
-
 
 
 //chats 
