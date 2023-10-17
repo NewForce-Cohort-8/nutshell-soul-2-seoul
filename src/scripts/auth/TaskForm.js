@@ -3,7 +3,7 @@ import { sendTask } from "./dataAccess.js";
 export const TaskForm = () => {
     let html = 
     `<div class="field">
-        <label class="label" for="taskDesc">Desc</label>
+        <label class="label" for="taskDesc">Description</label>
         <input type="text" name="taskDesc" class="input" />
     </div>
     <div class="field">
