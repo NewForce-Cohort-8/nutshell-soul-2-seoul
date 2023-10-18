@@ -2,7 +2,8 @@ import {LogOutButton} from "./auth/LogoutButton.js"
 import { TaskCard, TaskForm } from "./auth/TaskForm.js"
 import { NewsCard, NewsForm } from "./NewsForm.js"
 import { ChatsCard, Chatbox } from "./Chatbox.js"
-
+import { LogOutButton } from "./auth/LogoutButton.js"
+import { EventCard, EventListing } from "./EventList.js"
 
 
 
@@ -28,11 +29,11 @@ export const Nutshell = () => {
   <div class="chatBox">
   ${ChatsCard()}
   ${Chatbox()}
- 
   </div>
 
-  <div> 
-  
+  <div class="eventListing"> 
+  ${EventListing()}
+  ${EventCard()}
   </div>
 
   <section class="newsForm">
