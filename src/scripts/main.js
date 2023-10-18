@@ -1,8 +1,7 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
-import { fetchEvent, fetchNews } from "./dataAccess.js"
-import { fetchChats } from "./dataAccess.js"
+import { fetchNews, fetchTasks, fetchEvent,fetchChats} from "./dataAccess.js"
 import { LogOutButton } from "./auth/LogoutButton.js"
 
 
@@ -11,6 +10,7 @@ const mainContainer = document.querySelector(".dashboard")
 export const nutshellRender = () => {
     fetchNews()
     .then(() => fetchChats())
+    .then(() => fetchTasks())    
     .then(() => fetchEvent())
     .then(
         () => {
