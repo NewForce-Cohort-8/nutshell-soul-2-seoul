@@ -1,4 +1,4 @@
-
+/* 
 
 body {
     background-color: bisque;
@@ -78,4 +78,12 @@ body {
     margin: 10px;
 
 
+} */
+
+/* Style for the next event card */
+.custom-style {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: lightblue;
+    /* Add any other desired styles here */
 }

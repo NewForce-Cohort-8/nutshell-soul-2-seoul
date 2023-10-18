@@ -26,8 +26,8 @@ export const EventListing = () => {
 // Creation of Event Card - displays data entered by user to DOM
 export const EventCard = () => {
     const events = getEvent()
-    const sortEventCard = events.sort((a,b) => new Date(b.date) - new Date(a.date))
-
+    const sortEventCard = events.sort((a,b) => new Date(a.date) - new Date(b.date))
+ 
     let html = `
 
     <ul>  ${
@@ -44,9 +44,10 @@ export const EventCard = () => {
         }).join(" ")
     }  
     </ul> `
-       
+    
     return html
 }
+
 
 // click event listener to send data to API/Json Server
 const mainContainer = document.querySelector(".dashboard")
@@ -79,3 +80,5 @@ mainContainer.addEventListener("click", click => {
         deleteEvent(parseInt(eventId))
     }
 })
+
+
