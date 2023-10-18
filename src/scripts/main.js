@@ -1,14 +1,17 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
-import { fetchNews } from "./dataAccess.js"
+import { fetchEvent, fetchNews } from "./dataAccess.js"
 import { fetchChats } from "./dataAccess.js"
+import { LogOutButton } from "./auth/LogoutButton.js"
+
 
 const mainContainer = document.querySelector(".dashboard")
 
-const render = () => {
+export const nutshellRender = () => {
     fetchNews()
     .then(() => fetchChats())
+    .then(() => fetchEvent())
     .then(
         () => {
             mainContainer.innerHTML = Nutshell()
@@ -16,21 +19,20 @@ const render = () => {
     )
 }
 
-render()
-
 
 mainContainer.addEventListener(
     "stateChanged",
     customEvent => {
-        render()
+        nutshellRender()
     }
 )
 
-const activeUser = sessionStorage.getItem("activeUser")
+export const activeUser = sessionStorage.getItem("activeUser")
 
 if(!activeUser){
     LoginForm()
     RegisterForm()
+    
 } else {
-    Nutshell()
+    nutshellRender()
 }

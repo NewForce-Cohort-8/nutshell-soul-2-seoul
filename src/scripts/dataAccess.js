@@ -26,7 +26,6 @@ export const fetchNews = () => {
 export const getNews = () => {
     return applicationState.news.map(newspost => ({...newspost}))
 }
- console.log(getNews())
 
 // sends news post made by user in browser to API and then refactored to json database
 export const sendNews = (userNewsPost) => {
@@ -98,6 +97,51 @@ export const sendChats = (userChatsPost) => {
 // deletes chats from API/json database which also removes the request from the browser 
 export const deleteChats = (id) => {
     return fetch(`${API}/chats/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
+// fetch events data from API
+export const fetchEvent = () => {
+    return fetch(`${API}/events`)
+        .then(response => {return response.json()})
+        .then(
+            (userEvent) => {
+                // Store the external state in application state
+                applicationState.events = userEvent
+            }
+        )
+}
+
+// export events in application state to make data renderable to HTML
+export const getEvent = () => {
+    return applicationState.events.map(event => ({...event}))
+}
+
+// sends event listing made by user in browser to API and then refactored to json database
+export const sendEvent = (userEvent) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userEvent)
+    }
+
+
+    return fetch(`${API}/events`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+// deletes news from API/json database which also removes the request from the browser 
+export const deleteEvent = (id) => {
+    return fetch(`${API}/events/${id}`, { method: "DELETE" })
         .then(
             () => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))

@@ -1,11 +1,17 @@
-import { getChats, sendChats, deleteChats } from "./dataAccess.js";
+import { getChats, sendChats, deleteChats, } from "./dataAccess.js";
 
 
 
 export const Chatbox = () => {
     let html = `
+    
 <div class="field">
-    <label class="label" for="chatMessage">Message</label>
+    <label class="label" for="username">Username</label>
+    <input type="text" name="username" class="input" />
+</div>
+
+<div class="field">
+    <label class="label" for="chatMessage">Message:</label>
     <input type="text" name="chatMessage" class="input" />
 </div>
 
@@ -16,7 +22,7 @@ export const Chatbox = () => {
 
 export const ChatsCard = () => {
     const chats = getChats()
-
+ 
     let html = `
 
     <ul>  ${
@@ -36,7 +42,7 @@ export const ChatsCard = () => {
             }
           </style>
   <div class="Chatcontainer">
-    <p> Chat: ${chatspost.chatMessage}</p>    
+    <p> ${chatspost.username}: ${chatspost.chatMessage}</p>    
     </div>
 </div>
 <button class="request__delete" id="chats--${chatspost.id}"> X </button>`
@@ -62,10 +68,12 @@ mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveChat") {
         // Get what the user typed into the form fields
         const chatMessage = document.querySelector("input[name='chatMessage']").value
+        const username = document.querySelector("input[name='username']").value
         const date_created = new Date
 
         // Make an object out of the user input
         const dataToSendToAPI = {
+            username: username,
             chatMessage: chatMessage,
             dateCreated: date_created
         }

@@ -11,12 +11,12 @@ eventHub.addEventListener("click", (e) => {
 
     if (email !== "") {
       // Check to see if the user exists
-      fetch(`http://localhost:8088/users?email=${email}`)
+      fetch(`http://localhost:8080/users?email=${email}`)
         .then((response) => response.json())
         .then((users) => {
           if (users.length === 0) {
             // If not, create them (register them)
-            fetch("http://localhost:8088/users", {
+            fetch("http://localhost:8080/users", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
