@@ -1,3 +1,5 @@
+//Author: Andrew Hanks
+//Puropse: Create task form, create functions to render data to the DOM, and create a function to delete data from the DOM
 import { deleteTask, getTasks, sendTasks } from "../dataAccess.js";
 
 
@@ -9,7 +11,7 @@ export const TaskForm = () => {
     </div>
     <div class="field">
         <label class="label" for="taskCompletion">Complete</label>
-        <input type="checkbox" name="taskCompletion" class="input" />
+        <input id="toggleSwitch" input type="checkbox" data-toggle="toggle" name="taskCompletion" class="input" data-onstyle="complete" data-offstyle="needs work"> 
     </div>
 
 
@@ -70,3 +72,13 @@ mainContainer.addEventListener("click", click => {
         deleteTask(parseInt(tasksId))
     }
 })
+// checkbox event listener to check for completion
+let checkbox = document.querySelector("input[id=toggleSwitch]");
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+  } else {
+    console.log("Checkbox is not checked..");
+  }
+});

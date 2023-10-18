@@ -134,7 +134,12 @@ export const sendTasks = (userTasksPost) => {
 }
 // deletes task from API/json database which also removes the request from the browser 
 export const deleteTask = (id) => {
-    return fetch(`${API}/tasks/${id}`, { method: "DELETE" })}
+    return fetch(`${API}/tasks/${id}`, { method: "DELETE" })
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged")
+        )}
+        )
+    }
 
     // export tasks in application state to make data renderable to HTML
 export const getTasks = () => {
