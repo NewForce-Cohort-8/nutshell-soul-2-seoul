@@ -66,7 +66,7 @@ mainContainer.addEventListener("click", clickEvent => {
 // click event listener for task form delete
 mainContainer.addEventListener("click", click => {
     if (click.target.id.startsWith("tasks--")) {
-        const [,taskId] = click.target.id.split("--")
-        deleteTask(parseInt(taskId))
+        const [,tasksId] = click.target.id.split("--")
+        deleteTask(parseInt(tasksId))
     }
 })
