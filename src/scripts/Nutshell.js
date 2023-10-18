@@ -1,3 +1,5 @@
+
+import { TaskCard, TaskForm } from "./auth/TaskForm.js"
 import { NewsCard, NewsForm } from "./NewsForm.js"
 import { ChatsCard, Chatbox } from "./Chatbox.js"
 import { LogOutButton } from "./auth/LogoutButton.js"
@@ -38,6 +40,10 @@ export const Nutshell = () => {
   ${NewsForm()}
   ${NewsCard()}
 
+  </section>
+  <section class="taskForm">
+  ${TaskForm()}
+  ${TaskCard()}
   </section>
   `
 }

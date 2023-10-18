@@ -83,16 +83,15 @@ export const sendChats = (userChatsPost) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(userChatsPost)
+        body: JSON.stringify(userTaskPost)
     }
-
-
     return fetch(`${API}/chats`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
+
 
 // deletes chats from API/json database which also removes the request from the browser 
 export const deleteChats = (id) => {
@@ -104,6 +103,18 @@ export const deleteChats = (id) => {
         )
 }
 
+
+// fetch task data from API
+export const fetchTasks = () => {
+    return fetch(`${API}/tasks`)
+        .then(response => {return response.json()})
+        .then(
+            (userTasksPost) => {
+                // Store the external state in application state
+                applicationState.tasks = userTasksPost
+            })
+        }
+
 // fetch events data from API
 export const fetchEvent = () => {
     return fetch(`${API}/events`)
@@ -114,6 +125,23 @@ export const fetchEvent = () => {
                 applicationState.events = userEvent
             }
         )
+}
+
+
+// sends tasks post made by user in browser to API and then refactored to json database
+export const sendTasks = (userTasksPost) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userTasksPost)
+    }
+    return fetch(`${API}/tasks`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    })
 }
 
 // export events in application state to make data renderable to HTML
@@ -138,7 +166,19 @@ export const sendEvent = (userEvent) => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
+// deletes task from API/json database which also removes the request from the browser 
+export const deleteTask = (id) => {
+    return fetch(`${API}/tasks/${id}`, { method: "DELETE" })
+    .then(() => {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged")
+        )}
+        )
+    }
 
+    // export tasks in application state to make data renderable to HTML
+export const getTasks = () => {
+    return applicationState.tasks.map(taskspost => ({...taskspost}))
+}
 // deletes news from API/json database which also removes the request from the browser 
 export const deleteEvent = (id) => {
     return fetch(`${API}/events/${id}`, { method: "DELETE" })
@@ -147,4 +187,4 @@ export const deleteEvent = (id) => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             }
         )
-}
+        }
