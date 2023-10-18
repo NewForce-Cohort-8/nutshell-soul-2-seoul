@@ -25,17 +25,20 @@ export const Nutshell = () => {
   <div class="chatBox">
   ${ChatsCard()}
   ${Chatbox()}
-  
+ 
   </div>
 
-
+  
 
   <section class="newsForm">
   ${NewsForm()}
   ${NewsCard()}
+
   </section>
   `
       // Render all your UI components here
 }
 
-// ${LogOutButton()}
+// `<div> ${LogOutButton()} </div>`
+
+// 
