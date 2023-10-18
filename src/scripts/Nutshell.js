@@ -28,7 +28,7 @@ export const Nutshell = () => {
   <div class="chatBox">
   ${ChatsCard()}
   ${Chatbox()}
-  
+ 
   </div>
 
   <div> 
@@ -38,6 +38,7 @@ export const Nutshell = () => {
   <section class="newsForm">
   ${NewsForm()}
   ${NewsCard()}
+
   </section>
   <section class="taskForm">
   ${TaskForm()}
