@@ -5,6 +5,7 @@ import { fetchEvent, fetchNews } from "./dataAccess.js"
 import { fetchChats } from "./dataAccess.js"
 import { LogOutButton } from "./auth/LogoutButton.js"
 
+
 const mainContainer = document.querySelector(".dashboard")
 
 export const nutshellRender = () => {
@@ -26,11 +27,12 @@ mainContainer.addEventListener(
     }
 )
 
-const activeUser = sessionStorage.getItem("activeUser")
+export const activeUser = sessionStorage.getItem("activeUser")
 
 if(!activeUser){
     LoginForm()
     RegisterForm()
+    
 } else {
     nutshellRender()
 }

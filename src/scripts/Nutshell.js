@@ -37,6 +37,7 @@ export const Nutshell = () => {
   <section class="newsForm">
   ${NewsForm()}
   ${NewsCard()}
+
   </section>
   `
 }
