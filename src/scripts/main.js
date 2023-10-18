@@ -26,7 +26,7 @@ mainContainer.addEventListener(
     }
 )
 
-const activeUser = sessionStorage.getItem("activeUser")
+export const activeUser = sessionStorage.getItem("activeUser")
 
 if(!activeUser){
     LoginForm()
