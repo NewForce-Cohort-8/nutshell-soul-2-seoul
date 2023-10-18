@@ -1,81 +1,81 @@
-
-
 body {
-    background-color: bisque;
+    background-color: floralwhite;
 }
 
 #mainHeader {
     border: none;
     position: sticky;
     color: midnightblue;
-    background-color: bisque;
+    
     line-height: 70px;
     font: 45px;
     text-align: center;
     font-family: Verdana, sans-serif;
 }
 
+.container {
+    border-style: solid;
+    border-radius: 10px;
+    position: sticky;
+    color: midnightblue;
+    align-self: left;
+    width: 200px;
+    margin:10px;
+    padding: 10px;
+
+    
+}
+
+.containerTwo {
+    border-style: solid;
+    border-radius: 10px;
+    color: midnightblue;
+    padding: 10px;   
+    background-color: aliceblue;
+    margin: 10px;
+
+}
+
+.containerThree {
+    border-style: solid;
+    border-radius: 10px;
+    color: midnightblue;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
 .publicMessage {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
-    color: midnightblue;
-    height: 40%;
-    width: 85%;
-    background-color: bisque;
-    margin: 10px;
-
-}
-
-.toDoList {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
-    color: midnightblue;
-    height: 40%;
-    width: 42%;
-    background-color: bisque;
-    margin: 10px;
+    align-self: center;
     text-align: left;
-    display: inline-flex
-
-}
-
-.futureEvents {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
     color: midnightblue;
-    height: 40%;
-    width: 42%;
-    background-color: bisque;
-    margin: 10px;
-    text-align: left;
-    display: inline-flex
+    height: 250px;
+    width: 100%;
+    margin: 5px;
 
 }
+
+.toDoList, .futureEvents {
+    color: midnightblue;
+    height: 150px;
+    width: 48%;
+    background-color: aliceblue;
+    margin: 8px;
+    text-align: left;
+    display: inline-flex;
+    text-size: 10px;
+    padding: 5px;
+
+}
+
 
 .news {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
     color: midnightblue;
-    height: 40%;
-    width: 45%;
-    background-color: bisque;
+    height: 150px;
+    width: 98%;
+    display: inline-flex;
     margin: 10px;
-
-}
-
-.pics {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
-    color: midnightblue;
-    height: 40%;
-    width: 45%;
-    background-color: bisque;
-    margin: 10px;
-
-
+    text-size: 10px;
+    background-color: aliceblue;
+    padding: 5px;
 }
