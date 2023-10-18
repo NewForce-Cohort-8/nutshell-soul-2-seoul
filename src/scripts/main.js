@@ -3,11 +3,12 @@ import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
 import { fetchNews } from "./dataAccess.js"
 import { fetchChats } from "./dataAccess.js"
+import { LogOutButton } from "./auth/LogoutButton.js"
 
 
 const mainContainer = document.querySelector(".dashboard")
 
-const render = () => {
+export const nutshellRender = () => {
     fetchNews()
     .then(() => fetchChats())
     .then(
@@ -17,13 +18,11 @@ const render = () => {
     )
 }
 
-render()
-
 
 mainContainer.addEventListener(
     "stateChanged",
     customEvent => {
-        render()
+        nutshellRender()
     }
 )
 
@@ -34,5 +33,5 @@ if(!activeUser){
     RegisterForm()
     
 } else {
-    Nutshell()
+    nutshellRender()
 }

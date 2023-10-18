@@ -1,6 +1,9 @@
+// author(s): Hannah Thompson
+// purpose of module: Creation of news article form, function created to render the data to the DOM, and function created to delete data card from DOM
+
 import { getNews, sendNews, deleteNews } from "./dataAccess.js";
 
-
+// Creation of News Form
 export const NewsForm = () => {
     let html = `<div class="field">
     <label class="label" for="newsURL">URL</label>
@@ -20,7 +23,7 @@ export const NewsForm = () => {
     return html
 }
 
-
+// Creation of News Card - displays data entered by user to DOM
 export const NewsCard = () => {
     const news = getNews()
     const sortNewsCards = news.sort((a,b) => new Date(b.dateCreated) - new Date(a.dateCreated))
@@ -56,7 +59,7 @@ mainContainer.addEventListener("click", click => {
     }
 })
 
-
+// click event listener to send data to API/Json Server
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveArticle") {
         // Get what the user typed into the form fields

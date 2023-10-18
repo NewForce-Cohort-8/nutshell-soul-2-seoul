@@ -1,4 +1,5 @@
 import {Nutshell} from "../Nutshell.js"
+import { nutshellRender } from "../main.js"
 const contentTarget = document.querySelector(".auth--login")
 const eventHub = document.querySelector(".container")
 
@@ -9,7 +10,7 @@ eventHub.addEventListener("click", e => {
         // Get their email from the login form
         const email = document.querySelector("#login__email").value
 
-        // Query the databaes for users that have that email
+        // Query the database for users that have that email
         return fetch(`http://localhost:8080/users?email=${email}`)
             .then(response => response.json())
             .then(users => {
@@ -25,7 +26,8 @@ eventHub.addEventListener("click", e => {
                     document.querySelector(".auth--register").innerHTML = ""
 
                     // print the page
-                    Nutshell()
+                    nutshellRender()
+
                 } else {
                     window.alert("User does not exist! 😭 Please register.")
                 }
