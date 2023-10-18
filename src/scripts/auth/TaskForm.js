@@ -9,10 +9,12 @@ export const TaskForm = () => {
         <label class="label" for="taskDesc">Description</label>
         <input type="text" name="taskDesc" class="input" />
     </div>
+
     <div class="field">
-        <  input type="checkbox" id="Checkbox"> Is the task complete?
-       <p id="text" style="color: green; display: none;">Checked!</p>
+    <label class="label" for="cDate">Expected Completion Date</label>
+    <input type="date" name="cDate" class="input" />
     </div>
+
 
 
 <button class="button" id="saveTask">Save Task</button>`
@@ -31,10 +33,10 @@ export const TaskCard = () => {
   <div class="container">
     <h4><b> To-DO: </b></h4>
     <p> Description: ${taskpost.task}</p> 
-    <p> Completion: ${taskpost.completion}</p>     
+    <p> Complete by: ${taskpost.dateCreated}</p>     
     </div>
 </div>
-<button class="request__delete" id="tasks--${taskpost.id}"> Delete </button>`
+<button class="request__delete" id="tasks--${taskpost.id}"> Complete </button>`
         }).join(" ")
     }  
     </ul> `
@@ -50,7 +52,7 @@ mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveTask") {
         // Get what the user typed into the form fields
         const taskDesc = document.querySelector("input[name='taskDesc']").value
-        const taskCompletion = document.querySelector("input[name='taskCompletion']").value
+        const taskCompletion = document.querySelector("input[name='cDate']").value
         
 
         // Make an object out of the user input
@@ -70,12 +72,5 @@ mainContainer.addEventListener("click", click => {
     if (click.target.id.startsWith("tasks--")) {
         const [,tasksId] = click.target.id.split("--")
         deleteTask(parseInt(tasksId))
-    }
-})
-// checkbox event listener to check for completion
-const text = document.getElementById("text");
-document.querySelector('#Checkbox').addEventListener('click',(e) =>{
-    if(e.target.checked){
-        text.style.display = "block";
     }
 })

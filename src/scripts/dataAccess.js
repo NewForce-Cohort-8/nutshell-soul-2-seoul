@@ -137,7 +137,7 @@ export const sendTasks = (userTasksPost) => {
         },
         body: JSON.stringify(userTasksPost)
     }
-    return fetch(`${API}/events`, fetchOptions)
+    return fetch(`${API}/tasks`, fetchOptions)
     .then(response => response.json())
     .then(() => {
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
