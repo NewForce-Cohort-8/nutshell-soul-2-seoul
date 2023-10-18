@@ -2,11 +2,17 @@ body {
     background-color: floralwhite;
 }
 
+h1 {
+    text-align: left;
+    color: midnightblue;
+    letter-spacing: 2px;
+
+}
+
 #mainHeader {
     border: none;
     position: sticky;
     color: midnightblue;
-    
     line-height: 70px;
     font: 45px;
     text-align: center;
@@ -18,7 +24,7 @@ body {
     border-radius: 10px;
     position: sticky;
     color: midnightblue;
-    align-self: left;
+    align-self: center;
     width: 200px;
     margin:10px;
     padding: 10px;
@@ -31,40 +37,32 @@ body {
     border-radius: 10px;
     color: midnightblue;
     padding: 10px;   
-    background-color: aliceblue;
-    margin: 10px;
+    margin: 10px;    
 
-}
-
-.containerThree {
-    border-style: solid;
-    border-radius: 10px;
-    color: midnightblue;
-    padding: 10px;
-    margin: 10px;
-    
 }
 
 .publicMessage {
+    border-style: hidden;
     align-self: center;
     text-align: left;
     color: midnightblue;
     height: 250px;
     width: 100%;
     margin: 5px;
+    background-color:aliceblue;
 
 }
 
 .toDoList, .futureEvents {
     color: midnightblue;
     height: 150px;
-    width: 48%;
     background-color: aliceblue;
     margin: 8px;
+    width: 48%;
     text-align: left;
-    display: inline-flex;
-    text-size: 10px;
     padding: 5px;
+    display: inline-block;
+    text-align: justify;
 
 }
 
@@ -72,10 +70,9 @@ body {
 .news {
     color: midnightblue;
     height: 150px;
-    width: 98%;
-    display: inline-flex;
+    width: auto;
     margin: 10px;
-    text-size: 10px;
     background-color: aliceblue;
     padding: 5px;
+    text-align: justify;
 }
