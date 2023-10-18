@@ -10,8 +10,8 @@ export const TaskForm = () => {
         <input type="text" name="taskDesc" class="input" />
     </div>
     <div class="field">
-        <label class="label" for="taskCompletion">Complete</label>
-        <input id="toggleSwitch" input type="checkbox" data-toggle="toggle" name="taskCompletion" class="input" data-onstyle="complete" data-offstyle="needs work"> 
+        <  input type="checkbox" id="Checkbox"> Is the task complete?
+       <p id="text" style="color: green; display: none;">Checked!</p>
     </div>
 
 
@@ -73,12 +73,9 @@ mainContainer.addEventListener("click", click => {
     }
 })
 // checkbox event listener to check for completion
-let checkbox = document.querySelector("input[id=toggleSwitch]");
-
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-  } else {
-    console.log("Checkbox is not checked..");
-  }
-});
+const text = document.getElementById("text");
+document.querySelector('#Checkbox').addEventListener('click',(e) =>{
+    if(e.target.checked){
+        text.style.display = "block";
+    }
+})
