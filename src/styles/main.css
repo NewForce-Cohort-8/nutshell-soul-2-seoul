@@ -1,81 +1,96 @@
-
-
 body {
-    background-color: bisque;
+    background-color: floralwhite;
 }
+
 
 #mainHeader {
     border: none;
     position: sticky;
     color: midnightblue;
-    background-color: bisque;
     line-height: 70px;
     font: 45px;
     text-align: center;
     font-family: Verdana, sans-serif;
 }
 
-.publicMessage {
+
+.container {
     border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
+    border-radius: 10px;
+    position: sticky;
     color: midnightblue;
-    height: 40%;
-    width: 85%;
-    background-color: bisque;
-    margin: 10px;
+    align-self: left;
+    max-width: 200px;
+    margin: auto;
+    padding: 5px;
+
+    
+}
+
+.mainContainer {
+    border-style: solid;
+    border-radius: 10px;
+    color: midnightblue;
+    background-color: aliceblue;
+    height: auto;
+    
+}
+
+h2 {
+    color: midnightblue;
+    align-self: left;
+}
+
+.chatBox {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    background: rgb(63,199,251);
+    background: radial-gradient(circle, rgba(63,199,251,1) 0%, rgba(150,70,252,1) 100%);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    max-width: 90%;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    margin: 50px;
+    padding: 30px;
 
 }
 
-.toDoList {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
+
+.taskForm, .eventListing {
     color: midnightblue;
-    height: 40%;
-    width: 42%;
-    background-color: bisque;
-    margin: 10px;
+    height: auto;
+    background-color: floralwhite;
+    margin: auto;
+    max-width: 90%;
     text-align: left;
-    display: inline-flex
+    display: flex; 
+    flex-direction: column;
+    border-style: double;
+    border-color: midnightblue;
+    border-radius: 8px;
+
 
 }
 
-.futureEvents {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
+
+
+.button {
+    width: 10em;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.newsContainer {
     color: midnightblue;
-    height: 40%;
-    width: 42%;
-    background-color: bisque;
-    margin: 10px;
+    height: auto;
+    background-color: floralwhite;
+    max-width: 98%;
     text-align: left;
-    display: inline-flex
-
-}
-
-.news {
-    border-style: solid;
-    border-width: medium;
+    margin: auto;
+    border-style: double;
     border-color: midnightblue;
-    color: midnightblue;
-    height: 40%;
-    width: 45%;
-    background-color: bisque;
-    margin: 10px;
-
-}
-
-.pics {
-    border-style: solid;
-    border-width: medium;
-    border-color: midnightblue;
-    color: midnightblue;
-    height: 40%;
-    width: 45%;
-    background-color: bisque;
-    margin: 10px;
+    border-radius: 8px;
+}   
 
 
-}
