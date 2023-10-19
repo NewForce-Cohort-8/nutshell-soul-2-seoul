@@ -33,7 +33,7 @@ export const NewsCard = () => {
         sortNewsCards.map(newspost => {
             return `
             <div class="card">
-  <div class="container">
+  <div class="newsContainer">
     <h4><b> Title: ${newspost.title}</b></h4>
     <p> URL: ${newspost.url}</p>
     <p> Synopsis: ${newspost.synopsis}</p>  
@@ -47,6 +47,8 @@ export const NewsCard = () => {
        
     return html
 }
+
+// changing div class container to newsContainer
 
 
 // click event listener for news form
