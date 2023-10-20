@@ -33,7 +33,7 @@ export const TaskCard = () => {
   <div class="container">
     <h4><b> To-DO: </b></h4>
     <p> Description: ${taskpost.task}</p> 
-    <p> Complete by: ${taskpost.dateCreated}</p>     
+    <p> Complete by: ${taskpost.completion}</p>     
     </div>
 </div>
 <button class="request__delete" id="tasks--${taskpost.id}"> Complete </button>`
