@@ -83,7 +83,7 @@ export const sendChats = (userChatsPost) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(userTaskPost)
+        body: JSON.stringify(userChatsPost)
     }
     return fetch(`${API}/chats`, fetchOptions)
         .then(response => response.json())
