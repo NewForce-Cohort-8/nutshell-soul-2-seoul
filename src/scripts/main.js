@@ -1,22 +1,40 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
+import { fetchChats, fetchTasks, fetchEvent,fetchNews} from "./dataAccess.js"
+import { LogOutButton } from "./auth/LogoutButton.js"
 
 
-/*
-    1. Check if the user is authenticated by looking in session storage for `activeUser`
-    2. If so, render the Nutshell component
-    3. If not, render the login and registration forms
-    4. Also, if the user authenticates, and the login form is initially shown
-        ensure that the Nutshell component gets rendered
-*/
+const mainContainer = document.querySelector(".dashboard")
+    
+
+export const nutshellRender = () => {
+    fetchChats()
+    .then(() => fetchTasks())
+    .then(() => fetchEvent())    
+    .then(() => fetchNews())
+    .then(
+        () => {
+            mainContainer.innerHTML = Nutshell()
+        }
+    )
+}
+    // changed order of fetch
 
 
-const activeUser = sessionStorage.getItem("activeUser")
+mainContainer.addEventListener(
+    "stateChanged",
+    customEvent => {
+        nutshellRender()
+    }
+)
+
+export const activeUser = sessionStorage.getItem("activeUser")
 
 if(!activeUser){
     LoginForm()
     RegisterForm()
+    
 } else {
-    Nutshell()
+    nutshellRender()
 }
